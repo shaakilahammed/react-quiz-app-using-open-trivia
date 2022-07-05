@@ -22,7 +22,8 @@ export const fetchingQuiz = () => async (dispatch) => {
     });
 
     const { data } = await axios.get('https://opentdb.com/api.php?amount=10');
-    const formatQuestions = data.results.map((q) => ({
+    const formatQuestions = data.results.map((q, index) => ({
+      id: index,
       ...q,
       options: [q.correct_answer, ...q.incorrect_answers],
     }));
