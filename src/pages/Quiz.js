@@ -1,10 +1,11 @@
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Question from '../components/Question';
 import { chengeQuestion } from '../redux/actions/quizActions';
 import { endQuiz } from '../redux/actions/stageActions';
 const Quiz = () => {
   const dispatch = useDispatch();
-
+  const [timeLeft, setTimeLeft] = useState(30);
   const { loading, error, questions } = useSelector((state) => state.quiz);
 
   const currentQuestionIndex = useSelector(
@@ -28,12 +29,29 @@ const Quiz = () => {
     dispatch(endQuiz());
   };
 
+  useEffect(() => {
+    const timerFunc = setTimeout(() => {
+      dispatch(endQuiz());
+    }, 30000);
+
+    return () => clearTimeout(timerFunc);
+  }, [dispatch]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTimeLeft((prev) => prev - 1);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return loading ? (
     'loading...'
   ) : error ? (
     { error }
   ) : (
     <div>
+      <p>Time left: {timeLeft}</p>
       <p>{currentQuestionIndex + 1} / 10</p>
 
       <Question question={currentQuestion} />

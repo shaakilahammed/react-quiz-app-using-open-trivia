@@ -3,7 +3,7 @@ import { CHANGE_ANSWER } from '../constants/quizConstants';
 export const chengeAnswer = (question, answer) => (dispatch, getState) => {
   const answersArray = [...getState().answers];
   const existQuestionIndex = answersArray.findIndex(
-    (ans) => ans.question === question.question
+    (ans) => ans.id === question.id
   );
 
   const existQuestion = answersArray[existQuestionIndex];
