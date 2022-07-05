@@ -2,6 +2,7 @@ import {
   QUIZ_CHANGE_QUESTION,
   QUIZ_FAIL,
   QUIZ_REQUEST,
+  QUIZ_RESET,
   QUIZ_SUCCESS,
 } from '../constants/quizConstants';
 
@@ -16,6 +17,8 @@ export const quizReducer = (
       return { ...state, loading: false, questions: action.payload };
     case QUIZ_FAIL:
       return { ...state, loading: false, error: action.payload };
+    case QUIZ_RESET:
+      return { questions: [], currentQuestionIndex: 0 };
     case QUIZ_CHANGE_QUESTION:
       return { ...state, currentQuestionIndex: action.payload };
     default:

@@ -19,6 +19,7 @@ export const chengeAnswer = (question, answer) => (dispatch, getState) => {
       question: question.question,
       answer: answer,
       correctAnswer: question.correct_answer,
+      options: [...question.options],
     });
   }
   dispatch({ type: CHANGE_ANSWER, payload: answersArray });

@@ -3,11 +3,13 @@ import Layout from './components/Layout';
 import EndQuiz from './pages/EndQuiz';
 import Fetching from './pages/Fetching';
 import Home from './pages/Home';
+import MyResults from './pages/MyResults';
 import Quiz from './pages/Quiz';
 import {
   END_QUIZ,
   FETCHING_QUIZ,
   HOME,
+  MY_RESULTS,
   QUIZ,
 } from './redux/constants/stageConstants';
 
@@ -26,6 +28,9 @@ const App = () => {
       break;
     case END_QUIZ:
       displayPage = <EndQuiz />;
+      break;
+    case MY_RESULTS:
+      displayPage = <MyResults />;
       break;
     default:
       <Home />;

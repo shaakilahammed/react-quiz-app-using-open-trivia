@@ -4,12 +4,14 @@ import {
   CHANGE_ANSWER,
   QUIZ_FAIL,
   QUIZ_REQUEST,
+  QUIZ_RESET,
   QUIZ_SUCCESS,
 } from '../constants/quizConstants';
 import {
   END_QUIZ,
   FETCHING_QUIZ,
   HOME,
+  MY_RESULTS,
   QUIZ,
 } from '../constants/stageConstants';
 
@@ -41,10 +43,7 @@ export const fetchingQuiz = () => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: QUIZ_FAIL,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
+      payload: error.message,
     });
   }
 };
@@ -70,6 +69,7 @@ export const endQuiz = () => (dispatch, getState) => {
         question: ques.question,
         answer: null,
         correctAnswer: ques.correct_answer,
+        options: [...ques.options],
       });
   });
 
@@ -78,8 +78,20 @@ export const endQuiz = () => (dispatch, getState) => {
   // console.log(questions);
 };
 
-export const restartQuiz = () => (dispatch) => {
+export const returnHome = () => (dispatch) => {
   dispatch({
     type: HOME,
+  });
+  dispatch({
+    type: QUIZ_RESET,
+  });
+};
+
+export const showResults = () => (dispatch) => {
+  dispatch({
+    type: MY_RESULTS,
+  });
+  dispatch({
+    type: QUIZ_RESET,
   });
 };

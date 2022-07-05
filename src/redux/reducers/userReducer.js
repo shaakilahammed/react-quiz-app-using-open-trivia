@@ -11,7 +11,7 @@ export const userReducer = (state = { results: [] }, action) => {
     case SET_RESULT:
       return action.payload;
     case RESET_USER:
-      return {};
+      return { results: [] };
     default:
       return state;
   }

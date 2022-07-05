@@ -1,8 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { chengeAnswer } from '../redux/actions/answerActions';
+import classes from './Question.module.css';
 import Radio from './Radio';
 
-const Question = ({ question, options }) => {
+const Question = ({ question }) => {
   const answers = useSelector((state) => state.answers);
   const dispatch = useDispatch();
   let prevAnswer = null;
@@ -18,10 +19,11 @@ const Question = ({ question, options }) => {
   };
 
   return (
-    <div>
-      <p>
-        <strong>{question.question}</strong>
-      </p>
+    <div className={classes.container}>
+      <h4>
+        {question.id + 1}. {question.question}
+      </h4>
+
       {question.options.map((option, index) => (
         <Radio
           item={option}
@@ -29,6 +31,7 @@ const Question = ({ question, options }) => {
           checked={option === prevAnswer}
           onChange={() => handleChange(option)}
         />
+
         // <button key={index}>{option}</button>
       ))}
     </div>

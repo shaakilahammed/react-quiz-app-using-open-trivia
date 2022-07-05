@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import Question from '../components/Question';
 import { chengeQuestion } from '../redux/actions/quizActions';
 import { endQuiz } from '../redux/actions/stageActions';
+import { setResult } from '../redux/actions/userActions';
+import classes from './Quiz.module.css';
 const Quiz = () => {
   const dispatch = useDispatch();
   const [timeLeft, setTimeLeft] = useState(30);
@@ -27,6 +29,7 @@ const Quiz = () => {
 
   const submitHandler = () => {
     dispatch(endQuiz());
+    dispatch(setResult());
   };
 
   useEffect(() => {
@@ -50,20 +53,37 @@ const Quiz = () => {
   ) : error ? (
     { error }
   ) : (
-    <div>
-      <p>Time left: {timeLeft}</p>
-      <p>{currentQuestionIndex + 1} / 10</p>
+    <div className={classes.container}>
+      <div className={classes.top}>
+        <span className={classes.time}>{timeLeft}</span>
+        <span className={classes.question}>
+          {currentQuestionIndex + 1} / 10
+        </span>
+      </div>
 
-      <Question question={currentQuestion} />
+      <div>
+        <Question question={currentQuestion} />
+      </div>
+      <div className={classes.buttonContainer}>
+        <button
+          className={classes.button}
+          onClick={prevQuestion}
+          disabled={currentQuestionIndex === 0}
+        >
+          Previous
+        </button>
+        <button
+          className={classes.button}
+          onClick={nextQuestion}
+          disabled={currentQuestionIndex >= questions.length - 1}
+        >
+          Next
+        </button>
 
-      <button onClick={prevQuestion} disabled={currentQuestionIndex === 0}>
-        Previous
-      </button>
-      {currentQuestionIndex < questions.length - 1 ? (
-        <button onClick={nextQuestion}>Next</button>
-      ) : (
-        <button onClick={submitHandler}>Submit</button>
-      )}
+        <button className={classes.submitButton} onClick={submitHandler}>
+          Submit
+        </button>
+      </div>
     </div>
   );
 };

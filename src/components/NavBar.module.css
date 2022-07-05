@@ -1,0 +1,39 @@
+.nav {
+  display: flex;
+  background-color: #fff;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  border-bottom: 1px solid #e5e5e5;
+  z-index: 1;
+  height: 60px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+}
+
+.nav .brand h3 {
+  font-size: 18px;
+  line-height: 19px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.link {
+  font-weight: 500;
+  color: #2dbf64;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.link:hover {
+  color: #002333;
+}
+
+@media only screen and (max-width: 600px) {
+  .nav {
+    justify-content: space-between;
+  }
+}

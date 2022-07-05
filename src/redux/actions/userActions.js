@@ -1,5 +1,8 @@
+import { QUIZ_RESET } from '../constants/quizConstants';
+import { HOME } from '../constants/stageConstants';
 import {
   MARK_PER_QUESTION,
+  RESET_USER,
   SET_RESULT,
   SET_USERNAME,
 } from '../constants/userConstants';
@@ -58,4 +61,12 @@ export const setResult = () => (dispatch, getState) => {
   });
 
   localStorage.setItem('userInfo', JSON.stringify({ ...updateUserInfo }));
+};
+
+export const resetStats = () => (dispatch) => {
+  dispatch({ type: RESET_USER });
+  dispatch({ type: QUIZ_RESET });
+  dispatch({ type: HOME });
+
+  localStorage.removeItem('userInfo');
 };
