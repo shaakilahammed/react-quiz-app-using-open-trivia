@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import Question from '../components/Question';
 import { chengeQuestion } from '../redux/actions/quizActions';
+import { endQuiz } from '../redux/actions/stageActions';
 const Quiz = () => {
   const dispatch = useDispatch();
 
@@ -24,7 +25,7 @@ const Quiz = () => {
   };
 
   const submitHandler = () => {
-    console.log('submit');
+    dispatch(endQuiz());
   };
 
   return loading ? (

@@ -1,5 +1,7 @@
 import axios from 'axios';
+import { getShuffledArr } from '../../utils/getSuffleArray';
 import {
+  CHANGE_ANSWER,
   QUIZ_FAIL,
   QUIZ_REQUEST,
   QUIZ_SUCCESS,
@@ -25,7 +27,7 @@ export const fetchingQuiz = () => async (dispatch) => {
     const formatQuestions = data.results.map((q, index) => ({
       id: index,
       ...q,
-      options: [q.correct_answer, ...q.incorrect_answers],
+      options: getShuffledArr([q.correct_answer, ...q.incorrect_answers]),
     }));
 
     dispatch({
@@ -53,10 +55,27 @@ export const startQuiz = () => (dispatch) => {
   });
 };
 
-export const endQuiz = () => (dispatch) => {
+export const endQuiz = () => (dispatch, getState) => {
   dispatch({
     type: END_QUIZ,
   });
+  const answers = getState().answers;
+  const questions = getState().quiz.questions;
+
+  questions.forEach((ques) => {
+    const found = answers.some((ans) => ans.id === ques.id);
+    if (!found)
+      answers.push({
+        id: ques.id,
+        question: ques.question,
+        answer: null,
+        correctAnswer: ques.correct_answer,
+      });
+  });
+
+  dispatch({ type: CHANGE_ANSWER, payload: answers });
+  // console.log(answers);
+  // console.log(questions);
 };
 
 export const restartQuiz = () => (dispatch) => {

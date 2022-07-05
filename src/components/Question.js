@@ -5,8 +5,8 @@ import Radio from './Radio';
 const Question = ({ question, options }) => {
   const answers = useSelector((state) => state.answers);
   const dispatch = useDispatch();
-  let prevAnswer = '';
-  console.log(answers);
+  let prevAnswer = null;
+  // console.log(answers);
 
   if (answers.length > 0) {
     prevAnswer = answers?.find((ans) => ans.id === question.id)?.answer;
