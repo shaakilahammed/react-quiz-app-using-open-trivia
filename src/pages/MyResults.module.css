@@ -29,7 +29,7 @@ tr:nth-child(even) {
 .button,
 .restartButton {
   background: #ffc0c7;
-  color: var(--fontPrimary);
+  color: #002333;
   padding: 0.6rem 1.2rem;
   font-weight: 500;
   font-size: 15px;
@@ -49,11 +49,11 @@ tr:nth-child(even) {
   color: #fff;
 }
 .restartButton {
-  background: var(--successGreen);
+  background: #00ff84;
 }
 
 .restartButton:hover {
-  background: var(--fontPrimary);
+  background: #002333;
   color: #fff;
 }
 

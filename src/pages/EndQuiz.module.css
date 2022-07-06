@@ -6,8 +6,8 @@
 }
 
 .button {
-  background: var(--successGreen);
-  color: var(--fontPrimary);
+  background: #00ff84;
+  color: #002333;
   padding: 0.6rem 1.2rem;
   font-weight: 600;
   font-size: 15px;
@@ -22,6 +22,6 @@
 }
 
 .button:hover {
-  background: var(--fontPrimary);
+  background: #002333;
   color: #fff;
 }

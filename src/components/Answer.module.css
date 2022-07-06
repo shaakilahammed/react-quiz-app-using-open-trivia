@@ -2,11 +2,11 @@
   margin: 20px 0;
 }
 .correct {
-  background: var(--successGreen) !important;
+  background: #00ff84;
   font-weight: 600;
 }
 
 .wrong {
-  background: var(--dangerRed) !important;
+  background: #ffc0c7;
   font-weight: 600;
 }
