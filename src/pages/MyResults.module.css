@@ -26,7 +26,8 @@ tr:nth-child(even) {
   margin-bottom: 28px;
 }
 
-.button {
+.button,
+.restartButton {
   background: #ffc0c7;
   color: var(--fontPrimary);
   padding: 0.6rem 1.2rem;
@@ -40,9 +41,22 @@ tr:nth-child(even) {
   border-radius: 8px;
   cursor: pointer;
   border: 0px;
+  margin: 10px;
 }
 
 .button:hover {
   background: #f5576a;
   color: #fff;
+}
+.restartButton {
+  background: var(--successGreen);
+}
+
+.restartButton:hover {
+  background: var(--fontPrimary);
+  color: #fff;
+}
+
+.buttonContainer {
+  display: flex;
 }

@@ -15,6 +15,13 @@ const Home = () => {
     if (!username) {
       dispatch(setUsername());
     }
+
+    const handleKeyPress = (e) => {
+      if (e.key === 'Enter') dispatch(fetchingQuiz());
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
   }, [username, dispatch]);
   return (
     <div className={classes.buttonContainer}>

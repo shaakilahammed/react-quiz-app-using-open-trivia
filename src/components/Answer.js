@@ -1,10 +1,11 @@
+import { htmlEncode } from '../utils/htmlEncode';
 import classes from './Answer.module.css';
 import Radio from './Radio';
 const Answer = ({ question }) => {
   return (
     <div className={classes.container}>
       <h4>
-        {question.id + 1}. {question.question}
+        {question.id + 1}. {htmlEncode(question.question)}
       </h4>
 
       {question.options.map((option, index) => (

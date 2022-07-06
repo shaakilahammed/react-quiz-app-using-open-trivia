@@ -1,3 +1,4 @@
+import { htmlEncode } from '../utils/htmlEncode';
 import classes from './Radio.module.css';
 const Radio = ({ item, checked, onChange, className, ...rest }) => {
   return (
@@ -9,7 +10,7 @@ const Radio = ({ item, checked, onChange, className, ...rest }) => {
         onChange={onChange}
         {...rest}
       />
-      {item}
+      {htmlEncode(item)}
     </label>
   );
 };

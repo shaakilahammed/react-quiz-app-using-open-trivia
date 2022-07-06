@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { chengeAnswer } from '../redux/actions/answerActions';
+import { htmlEncode } from '../utils/htmlEncode';
 import classes from './Question.module.css';
 import Radio from './Radio';
 
@@ -21,7 +22,7 @@ const Question = ({ question }) => {
   return (
     <div className={classes.container}>
       <h4>
-        {question.id + 1}. {question.question}
+        {question.id + 1}. {htmlEncode(question.question)}
       </h4>
 
       {question.options.map((option, index) => (
