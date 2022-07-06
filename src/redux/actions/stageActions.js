@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { getShuffledArr } from '../../utils/getSuffleArray';
 import {
+  ANSWER_RESET,
   CHANGE_ANSWER,
   QUIZ_FAIL,
   QUIZ_REQUEST,
@@ -84,6 +85,9 @@ export const returnHome = () => (dispatch) => {
   });
   dispatch({
     type: QUIZ_RESET,
+  });
+  dispatch({
+    type: ANSWER_RESET,
   });
 };
 

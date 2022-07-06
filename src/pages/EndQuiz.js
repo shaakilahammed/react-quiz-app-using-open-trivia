@@ -6,13 +6,11 @@ import classes from './EndQuiz.module.css';
 
 const EndQuiz = () => {
   const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(setResult());
-  // }, [dispatch]);
 
   const answers = sortArray(useSelector((state) => state.answers));
 
   const { results } = useSelector((state) => state.userInfo);
+  const result = results[results.length - 1];
 
   const restartHandler = () => {
     dispatch(returnHome());
@@ -26,25 +24,24 @@ const EndQuiz = () => {
         </h4>
         <h4>
           <strong>Question Answer: </strong>
-          {results[results.length - 1].correctAnswer +
-            results[results.length - 1].wrongAnswer}
+          {result.correctAnswer + result.wrongAnswer}
         </h4>
         <h4>
           <strong>Correct Answer: </strong>
-          {results[results.length - 1].correctAnswer}
+          {result.correctAnswer}
         </h4>
         <h4>
           <strong>Wrong Answer: </strong>
-          {results[results.length - 1].wrongAnswer}
+          {result.wrongAnswer}
         </h4>
         <h4>
           <strong>Skip Question: </strong>
-          {results[results.length - 1].skipQuestion}
+          {result.skipQuestion}
         </h4>
         <h4>
           <strong style={{ color: 'rgb(38, 134, 88)' }}>
-            Total Score: {results[results.length - 1].correctAnswer} x 10 ={' '}
-            {results[results.length - 1].correctAnswer * 10}
+            Total Score: {result.correctAnswer} x 10 ={' '}
+            {result.correctAnswer * 10}
           </strong>
         </h4>
 

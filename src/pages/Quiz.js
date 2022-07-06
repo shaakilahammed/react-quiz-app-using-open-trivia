@@ -35,6 +35,7 @@ const Quiz = () => {
   useEffect(() => {
     const timerFunc = setTimeout(() => {
       dispatch(endQuiz());
+      dispatch(setResult());
     }, 30000);
 
     return () => clearTimeout(timerFunc);
