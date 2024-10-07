@@ -1,70 +1,77 @@
-# Getting Started with Create React App
+# Quiz App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a quiz app where randomly generated usernames allow users to take quizzes, answer or skip questions, and submit at any time. The app shows users their results after quiz submission, providing a seamless quiz-taking experience.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+-   Random username generation for each quiz session.
+-   Users can answer or skip questions and submit the quiz at any point.
+-   Displays results at the end of the quiz, showing correct and skipped answers.
+-   Integrated with the [Open Trivia Database API](https://opentdb.com) for fetching quiz questions.
+-   Fully responsive design for optimal user experience across devices.
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+-   ReactJS
+-   Redux
+-   Axios
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation
 
-### `npm test`
+1. Clone the repository:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    ```bash
+    git clone https://github.com/yourusername/quiz-app.git
+    ```
 
-### `npm run build`
+2. Navigate to the project directory:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+   cd next-shopping-cart-app
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Install dependencies:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+   npm install
+```
 
-### `npm run eject`
+4. Run the development server:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+   npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+5. Open your browser at http://localhost:3000 to view the app.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Screenshot
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### Start Quiz Page
 
-## Learn More
+![Start Page Screenshot](./screenshots/start.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Quiz Page
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![Quiz Page Screenshot](./screenshots/quiz.png)
 
-### Code Splitting
+#### Answer Page
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![Answers Page Screenshot](./screenshots/answers.png)
 
-### Analyzing the Bundle Size
+#### Results Page
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![Results Page Screenshot](./screenshots/results.png)
 
-### Making a Progressive Web App
+### API Integration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+This app uses the [Open Trivia Database API](https://opentdb.com/) to generate random questions for the quiz sessions. The API supports a variety of categories and difficulty levels, although this implementation focuses on general trivia.
 
-### Advanced Configuration
+### How to Use
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+-   Start the quiz by clicking the "Start Quiz" button.
+-   Answer each question or skip as needed.
+-   Submit the quiz at any time to view your score and review the answers.
 
-### Deployment
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Pull requests are welcome. For major changes, please open an issue to discuss what you would like to change.
